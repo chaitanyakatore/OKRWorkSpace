@@ -1,5 +1,6 @@
 package com.task.task_service.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +23,14 @@ public class Task {
     private String taskHeading;
     private String taskDescription;
     private Long taskOwner;
-    private Date startDate;
-    private Date dueDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date taskStartDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date taskDueDate;
+    private String taskTag;
+    private Long taskAssociatedKeyResult;
+    private Long taskAssociatedObjective;
 
     public Long getTaskId() {
         return taskId;
@@ -57,19 +64,43 @@ public class Task {
         this.taskOwner = taskOwner;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getTaskStartDate() {
+        return taskStartDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setTaskStartDate(Date taskStartDate) {
+        this.taskStartDate = taskStartDate;
     }
 
-    public Date getDueDate() {
-        return dueDate;
+    public Date getTaskDueDate() {
+        return taskDueDate;
     }
 
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
+    public void setTaskDueDate(Date taskDueDate) {
+        this.taskDueDate = taskDueDate;
+    }
+
+    public String getTaskTag() {
+        return taskTag;
+    }
+
+    public void setTaskTag(String taskTag) {
+        this.taskTag = taskTag;
+    }
+
+    public Long getTaskAssociatedKeyResult() {
+        return taskAssociatedKeyResult;
+    }
+
+    public void setTaskAssociatedKeyResult(Long taskAssociatedKeyResult) {
+        this.taskAssociatedKeyResult = taskAssociatedKeyResult;
+    }
+
+    public Long getTaskAssociatedObjective() {
+        return taskAssociatedObjective;
+    }
+
+    public void setTaskAssociatedObjective(Long taskAssociatedObjective) {
+        this.taskAssociatedObjective = taskAssociatedObjective;
     }
 }

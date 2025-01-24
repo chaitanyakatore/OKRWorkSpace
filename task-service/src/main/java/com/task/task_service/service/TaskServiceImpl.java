@@ -85,13 +85,17 @@ public class TaskServiceImpl implements TaskService {
                     existingTask.setTaskHeading(taskToUpdate.getTaskHeading());
                     existingTask.setTaskDescription(taskToUpdate.getTaskDescription());
                     existingTask.setTaskOwner(taskToUpdate.getTaskOwner());
-                    existingTask.setStartDate(taskToUpdate.getStartDate());
-                    existingTask.setDueDate(taskToUpdate.getDueDate());
+                    existingTask.setTaskStartDate(taskToUpdate.getTaskStartDate());
+                    existingTask.setTaskDueDate(taskToUpdate.getTaskDueDate());
+                    existingTask.setTaskTag(taskToUpdate.getTaskTag());
+                    existingTask.setTaskAssociatedKeyResult(taskToUpdate.getTaskAssociatedKeyResult());
+                    existingTask.setTaskAssociatedObjective(taskToUpdate.getTaskAssociatedObjective());
                     LOGGER.info("Task with ID: {} updated successfully.", taskId);
                     return taskRepository.save(existingTask); // Save updated task
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with ID: " + taskId));
     }
+
 
     /**
      * Deletes a task by its ID.

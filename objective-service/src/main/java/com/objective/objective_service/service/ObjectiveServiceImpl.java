@@ -97,7 +97,7 @@ public class ObjectiveServiceImpl implements ObjectiveService {
         return updatedObjective;
     }
 
-    
+
     @Override
     public void removeObjective(Long objectiveId) {
         LOGGER.info("Removing objective with ID: " + objectiveId);
